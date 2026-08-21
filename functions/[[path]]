@@ -1,0 +1,48 @@
+// Cloudflare Worker for API endpoints
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    
+    // CORS headers
+    const corsHeaders = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+
+    // Handle CORS preflight requests
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { headers: corsHeaders });
+    }
+
+    // API endpoint
+    if (url.pathname === '/api/data') {
+      if (request.method === 'GET') {
+        const data = {
+          message: 'Hello from Cloudflare Worker!',
+          timestamp: new Date().toISOString(),
+          location: 'Cloudflare Edge',
+          request_info: {
+            method: request.method,
+            url: url.href,
+            headers: Object.fromEntries(request.headers),
+          },
+          worker_info: {
+            cpu_time: ctx.cpuTime ? ctx.cpuTime.toString() : 'N/A',
+            region: 'Global Edge Network',
+          }
+        };
+
+        return new Response(JSON.stringify(data, null, 2), {
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders
+          }
+        });
+      }
+    }
+
+    // Serve static files (fallback)
+    return new Response('Not Found', { status: 404 });
+  }
+};

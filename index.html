@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אפליקציית Cloudflare Pages</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 אפליקציית Cloudflare Pages</h1>
+            <p>אפליקציה בסיסית עם Cloudflare Pages + Workers</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>🎯 מה זה?</h2>
+                <p>אפליקציה דוגמה המציגה איך להשתמש ב-Cloudflare Pages עם Cloudflare Workers.</p>
+            </section>
+
+            <section class="card">
+                <h2>📊 סטטיסטיקה בזמן אמת</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="counter">0</span>
+                        <span class="stat-label">ביקורים</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="status">מחובר</span>
+                        <span class="stat-label">סטטוס</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>🔧 פונקציות</h2>
+                <div class="buttons">
+                    <button id="fetchBtn" class="btn">קבל נתונים</button>
+                    <button id="clearBtn" class="btn btn-secondary">נקה</button>
+                </div>
+                <div id="result" class="result"></div>
+            </section>
+
+            <section class="card">
+                <h2>📝 הודעות</h2>
+                <div id="messages" class="messages"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>בנו עם ❤️ עם Cloudflare Pages</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

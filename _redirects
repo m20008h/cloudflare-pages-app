@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects configuration
+# Homepage
+/ /index.html 200
+
+# API routes (optional)
+/api /api/ 200
