@@ -1,5 +1,0 @@
-name = "cloudflare-pages-app"
-compatibility_date = "2026-08-20"
-
-[vars]
-# Add any environment variables here
